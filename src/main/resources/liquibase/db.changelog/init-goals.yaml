@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-goals
+      author: sasha
+      changes:
+        - createTable:
+            tableName: goals
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(150)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: type
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: target_value
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deadline
+                  type: DATE
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_goals_users
+                    references: users(id)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP

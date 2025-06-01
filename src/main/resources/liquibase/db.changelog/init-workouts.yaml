@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-workouts
+      author: sasha
+      changes:
+        - createTable:
+            tableName: workouts
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: duration
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: calories_burned
+                  type: INT
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_workouts_users
+                    references: users(id)

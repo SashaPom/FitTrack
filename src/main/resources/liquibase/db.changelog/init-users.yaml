@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-users
+      author: sasha
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(150)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                    name: password
+                    type: VARCHAR(255)
+                    constraints:
+                        nullable: false
+              - column:
+                  name: username
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: gender
+                  type: VARCHAR(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: age
+                  type: INT
+              - column:
+                  name: weight
+                  type: INT
+              - column:
+                  name: height
+                  type: INT
+              - column:
+                  name: role
+                  type: VARCHAR(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP

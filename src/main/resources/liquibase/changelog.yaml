@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: classpath:/liquibase/db.changelog/init-users.yaml
+  - include:
+      file: classpath:/liquibase/db.changelog/init-workouts.yaml
+  - include:
+      file: classpath:/liquibase/db.changelog/init-goals.yaml
+  - include:
+      file: classpath:/liquibase/db.changelog/init-nutrition.yaml
+  - include:
+      file: classpath:/liquibase/db.changelog/init-progress.yaml

@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-nutrition
+      author: sasha
+      changes:
+        - createTable:
+            tableName: nutrition_logs
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: date
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: total_calories
+                  type: INT
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_nutrition_logs_users
+                    references: users(id)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP

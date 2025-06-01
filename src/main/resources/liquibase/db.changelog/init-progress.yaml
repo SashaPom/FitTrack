@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-progress
+      author: sasha
+      changes:
+        - createTable:
+            tableName: progress_trackers
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: date
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: weight
+                  type: NUMERIC(5,2)
+              - column:
+                  name: fat_percentage
+                  type: NUMERIC(5,2)
+              - column:
+                  name: muscle_mass
+                  type: NUMERIC(5,2)
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_progress_trackers_users
+                    references: users(id)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: CURRENT_TIMESTAMP
