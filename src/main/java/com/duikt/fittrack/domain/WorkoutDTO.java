@@ -14,8 +14,7 @@ import java.util.UUID;
 public class WorkoutDTO {
     UUID id;
 
-    @NotBlank(message = "Workout type is required")
-    @Size(max = 50, message = "Workout type cannot exceed 50 characters")
+    @NotNull(message = "Workout type is required")
     @Enumerated(EnumType.STRING)
     Type type;
 

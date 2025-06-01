@@ -18,8 +18,7 @@ public class WorkoutEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @NotBlank(message = "Workout type is required")
-    @Column(nullable = false, length = 50)
+    @NotNull(message = "Workout type is required")    @Column(nullable = false, length = 50)
     private Type type;
 
     @PastOrPresent(message = "Workout date must be today or earlier")
